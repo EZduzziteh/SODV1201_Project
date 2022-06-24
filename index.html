@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-   <!-- SODV 1201 Introduction to Web Programming 
-         SODV 1201 Term Project- Co-Worker Office Space 
+   <!-- SODV 1201 Introduction to Web Programming
+         SODV 1201 Term Project- Co-Worker Office Space
           Program designed and coded by: SODV 1201 Group 2: Sasha Greene,  Gurleen Kaur, Paul K Kho, Evan Maclean
           Instructor:                   Dima Marachi
           Due       :     Phase 1   : June 2 2022
-                          Phase 2   : June 24 2022 
+                          Phase 2   : June 24 2022
     -->
 <html lang="en">
 <head>
@@ -12,35 +12,146 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> SODV 1201 Term Project - CoWorker Workspace </title>
-    <link rel="stylesheet"  href="sodvtermproject.css" >
-  
-    <script type = "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" >
-    </script>
+    <link rel="stylesheet"  href="sodv1201termproject.css" >
+    <!-- Load JQuery Library -->
+
 </head>
 <body>
     <h1 id="title-window">  <img src="images/work center icon.jpg" height="100" width="100" >
-        Owner Co-Worker Work Spaces and Properties 
+        Owner Co-Worker Workspace and Properties Registry
       <img src="images/Project Icon.png" height=" 100" width="100">
   </h1>
-  <header > 
-    <nav> 
-        <a href="index.html"> Home </a> 
-        <a href="workspace.html"> Co-Worker Work Space </a> 
-        <a href="owner.html"> Owner Co-Worker </a> 
-        <a href="site-map.html">  Site Map</a> 
+  <header >
+    <nav>
+        <a class="isActive" href="index.html"> Home </a>
+        <a class="isDisabled" href="workspacedetails.html">  Co-Worker Work Space and Properties</a>
+        <a class="isDisabled" href="propertiesdetails.html"> Owner Co-Worker Work Space and Properties  </a>
+        <a href="contactinformation.html" > Contact Details </a>
+        <a href="site-map.html">  Site Map</a>
     </nav>
 </header>
 <div class="container">
-    <!-- Home page (Landing Page)  Upon successful registration, the user will can access Co-Worker Work Space and Properties 
-        web page or Owner/Co-Worker Work Space and Properties web page.     -->
-      <div class="website_signIn"> 
-          
-      </div>
+    <!-- Home page (Landing Page)  Upon successful registration, the user will can
+         access Co-Worker Work Space and Properties web page or Owner/Co-Worker
+         Work Space and Properties web page.     -->
+          <h1> Sign Up Registration Form </h1>
+      <div class="RegistrationForm">
+          <form id="CheckValidate" action="" >
+            <label > Full Name:*</label>
+               <input type="text" id="UserName" name="name" required>
+            <label> eMail Address:* </label>
+               <input type = "text" id="email" name="email" required>
+            <label> Mobile Phone:* </label>
+               <input type = "text"  id="mobilephone" name="mphone" required>
+            <div class="role" id="roleChoice">
+               <label>  <input type="radio" id ="coworker"  required >  Co-Worker </label>
+               <label> <input type="radio" id ="owner"  required >  Owner Co-Worker  </label>
+               <label> Password (Minimum 6 characters):*   </label>
+               <input type = "Password" id="Password" required>
+               <button type="text"  id="Pass" > Click here to submit </button>
+               <br>
+            </div>
+        </div>
+           </form>
+            <div id="checkIn"> </div>
 </div>
-<footer> 
-    Project prepared and programmed by SODV 1201 Group 2. All rights reserved. &#169 2022.     
+<footer>
+    Project prepared and programmed by SODV 1201 Group 2. All rights reserved. &#169 2022.
 </footer>
-<script src = "sodv1201termproject.js"> </script>
 
+<script>
+function printError(Id, Msg) {
+    document.getElementById(Id).innerHTML = Msg;
+}
+function validateForm() {
+
+    var name = document.Form.name.value;
+    var email = document.Form.email.value;
+    var mobile = document.Form.mobile.value;
+    var role = document.Form.role.value;
+
+    var namErr= emailErr = mobileErr =roleErr=true;
+
+    if (name=="")
+    {
+        printError("nameErr", "PLEASE ENTER YOUR NAME");
+        var elem=document.getElementById("name");
+        
+    }
+    else{
+        var regex=/^[a-zA-Z\s]+$/;
+        if(regex.test(name)===false){
+            printError("nameErr","PLEASE ENTER A VALID NAME");
+            var elem=document.getElementById("name");
+
+        }else{
+            namErr=false;
+            printError("nameErr","");
+            var elem=document.getElementById("name");
+        }
+    }
+
+    
+    if (email=="")
+    {
+        printError("emailErr", "PLEASE ENTER YOUR EMAIL ADDRESS");
+        var elem=document.getElementById("email");
+        
+    }
+    else{
+        var regex=/^S+@\S+\.\S+$/;
+        if(regex.test(email)===false){
+            printError("emailErr","PLEASE ENTER A VALId EMAIL ADDRESS");
+            var elem=document.getElementById("email");
+
+        }else{
+            namErr=false;
+            printError("emailErr","");
+            var elem=document.getElementById("email");
+        }
+    }
+}
+
+</script>
+<script src = "sodv1201termproject.js"> </script>
 </body>
 </html>
+
+<!--
+ <form name="Form" onsubmit="return validateForm()">
+    <h2>Sign Up page</h2>
+    <div class="box">
+    <label>FULL NAME</label>
+    <input type="text" name="name" id="name">
+   
+</div>
+
+<div class="box">
+    <label>EMAIL ADDRESS</label>
+    <input type="text" name="email" id="email">
+    <div class="error" id="emailErr"></div>
+</div>
+
+
+<div class="box">
+    <label>MOBILE NUMBER</label>
+    <input type="text" name="mobile" id="mobile" maxlength="10">
+    <div class="error" id="mobileErr"></div>
+
+<div class="box">
+    <label>ROLE</label>
+
+    <div class="form-inline" id="role">
+    <label><input type="radio" name="role" value="user">USER</label>
+    <label><input type="radio" name="role" value="coworker">COWORKER</label>
+</div>
+<div class="error" id="roleErr"></div>
+
+<div class="box">
+    <input type="submit" value="Submit">
+    <script src="index.js"></script>
+</div>
+</div>
+</form>
+
+-->

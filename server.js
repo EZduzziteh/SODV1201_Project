@@ -6,36 +6,8 @@ SODV 1201 Term Project- Co-Worker Work Spaces and Properties
                  Phase 2   : June 24 2022
 */
 
-// Landing Page (Home Page )
-$(function() {
-  
-      checkIn();
-    
-  
-  $("#checkIn").text("Thank you for registering. Your information had been accepted and entered into our database");
-
-  })
-
-
-// Contact Page
-
-
-// User Story 1 and 2
-
-
-
-
-// User Story 3
-
-
-
-// User Story 4 through 8
-$(function(){
-
-
-})
-
-
-
+const  express=required('express');
+const http = required('http');
+const Port = 4001;  // For testing only
 
 

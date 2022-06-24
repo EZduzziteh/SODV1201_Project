@@ -1,12 +1,17 @@
 {
-  "name": "sodv-1201-group-2-project-server",
+  "name": "sodv-1201-term-project-files---co-worker-web-app",
   "version": "1.0.0",
-  "description": "",
-  "main": "projectserver.js",
+  "description": "sodv 1201 group 2 term project coworker registry",
+  "main": "g2index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "sodv 1201 group 2",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^1.3.3"
+  }
 }
